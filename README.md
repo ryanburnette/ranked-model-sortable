@@ -6,3 +6,7 @@ UI/Sortable][2] for use in Rails.
 ## License
 
 Apache2
+
+
+[1]: https://github.com/mixonic/ranked-model
+[2]: https://jqueryui.com/sortable/
