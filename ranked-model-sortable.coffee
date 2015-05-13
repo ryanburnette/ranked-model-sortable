@@ -1,13 +1,14 @@
+#= require jquery-ui
 #= require jquery-ui/sortable
 jQuery(document).ready ($) ->
 
   $("[data-ranked-model-sortable]").each ->
 
-    $sortable = $(this)
-    rms       = "ranked-model-sortable"
-    model     = $sortable.data("#{rms}-model")
-    attribute = $sortable.data("#{rms}-attribute")
-    $handle   = $sortable.find("[data-#{rms}-handle]")
+    $sortable     = $(this)
+    rms           = "ranked-model-sortable"
+    model         = $sortable.data("#{rms}-model")
+    attribute     = $sortable.data("#{rms}-attribute")
+    $handle       = $sortable.find("[data-#{rms}-handle]")
     base_post_url = $sortable.data("#{rms}-base-post-url")
 
     post_url = (i) ->
@@ -30,14 +31,14 @@ jQuery(document).ready ($) ->
       index = ui.item.index()
 
       jqxhr = $.ajax
-        type: "POST"
+        type:       "POST"
         beforeSend: set_request_header
-        url: post_url(id)
-        data: get_data(index)
+        url:        post_url(id)
+        data:       get_data(index)
 
       jqxhr.fail ->
         $sortable.sortable "cancel"
 
     $sortable.sortable
       handle: $handle
-      stop: stop
+      stop:   stop
